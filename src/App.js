@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import loginService from './services/login'
 import blogsService from './services/blogs'
 import Blog from './components/Blog'
@@ -62,7 +62,7 @@ function App() {
     }
   }
 
-  const handlelogout = () =>{
+  const handlelogout = () => {
     window.localStorage.clear()
     setUser(null)
     setInfo('You have logged out successfully')
@@ -93,7 +93,7 @@ function App() {
     setTitle('')
     setAuthor('')
     setUrl('')
-    
+
   }
 
   const addLikes = async (oldBlog) => {
@@ -121,19 +121,19 @@ function App() {
 
   const loginForm = () => (
     <div>
-        <h2>Log in to application</h2>
-        <Notification message={info} />
-        <Notification message={error} err />
-        <Togglable buttonLabel='login'>
-          <LoginForm
-            username={username}
-            password={password}
-            handleUsernameChange={({ target }) => setUsername(target.value)}
-            handlePasswordChange={({ target }) => setPassword(target.value)}
-            handleSubmit={handleLogin}
-          />
-        </Togglable>
-      </div>
+      <h2>Log in to application</h2>
+      <Notification message={info} />
+      <Notification message={error} err />
+      <Togglable buttonLabel='login'>
+        <LoginForm
+          username={username}
+          password={password}
+          handleUsernameChange={({ target }) => setUsername(target.value)}
+          handlePasswordChange={({ target }) => setPassword(target.value)}
+          handleSubmit={handleLogin}
+        />
+      </Togglable>
+    </div>
   )
 
   const blogForm = () => (
@@ -142,8 +142,8 @@ function App() {
       <Notification message={info} />
       <Notification message={error} err />
       <p>
-      {user.username} logged in
-      <button onClick={handlelogout} >logout</button>
+        {user.username} logged in
+        <button onClick={handlelogout} >logout</button>
       </p>
       <h2>create new</h2>
       <Togglable buttonLabel='new blog' ref={blogFormRef}>
@@ -163,16 +163,16 @@ function App() {
     </div>
   )
 
-  
+
   return (
     <div>
       {
         user === null ?
-        loginForm() :
-        blogForm()
+          loginForm() :
+          blogForm()
       }
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
