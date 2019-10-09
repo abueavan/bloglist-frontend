@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-const Blog = ({ 
+const Blog = ({
   blog,
   user,
   handleLike,
@@ -22,19 +22,19 @@ const Blog = ({
   }
 
   return (
-  <div>
-    <div style={blogStyle}>
-      <div onClick={toggleVisibility}>
-      {blog.title} {blog.author}
-      </div>
-      <div style={showWhenVisible}>
-        <a href={blog.url}>{blog.url}</a>
-        <p>{blog.likes}<button onClick={handleLike}>like</button></p>
-        <p>added by {blog.user.name}</p>
-        {user.username === blog.user.username &&<button onClick={handleDelete}>remove</button> }
+    <div>
+      <div style={blogStyle}>
+        <div onClick={toggleVisibility}>
+          {blog.title} {blog.author}
+        </div>
+        <div style={showWhenVisible}>
+          <a href={blog.url}>{blog.url}</a>
+          <p>{blog.likes}<button onClick={handleLike}>like</button></p>
+          <p>added by {blog.user.name}</p>
+          {user.username === blog.user.username &&<button onClick={handleDelete}>remove</button> }
+        </div>
       </div>
     </div>
-  </div>
- )}
+  )}
 
 export default Blog
