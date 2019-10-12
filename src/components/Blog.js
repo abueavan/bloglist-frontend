@@ -22,7 +22,7 @@ const Blog = ({
   }
 
   return (
-    <div>
+    <div className='blog'>
       <div style={blogStyle}>
         <div onClick={toggleVisibility} className='toggle'>
           {blog.title} {blog.author}
