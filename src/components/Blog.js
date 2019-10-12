@@ -24,10 +24,10 @@ const Blog = ({
   return (
     <div>
       <div style={blogStyle}>
-        <div onClick={toggleVisibility}>
+        <div onClick={toggleVisibility} className='toggle'>
           {blog.title} {blog.author}
         </div>
-        <div style={showWhenVisible}>
+        <div style={showWhenVisible} className="togglableContent">
           <a href={blog.url}>{blog.url}</a>
           <p>{blog.likes}<button onClick={handleLike}>like</button></p>
           <p>added by {blog.user.name}</p>
