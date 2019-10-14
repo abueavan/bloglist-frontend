@@ -8,12 +8,14 @@ export const useField = (type) => {  const [value, setValue] = useState('')
 
   const reset = () => setValue('')
 
-  return {
-    type,
-    value,
-    onChange,
+  return [
+    {
+      type,
+      value,
+      onChange,
+    },
     reset
-  }
+  ]
 }
 
 // module can have several named exports

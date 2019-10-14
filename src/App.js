@@ -10,16 +10,13 @@ import  { useField } from './hooks'
 
 function App() {
 
-  const username = useField('text')
-  const password = useField('password')
+  const [username, resetUsername] = useField('text')
+  const [password, resetPassword] = useField('password')
   const [user, setUser] = useState(null)
   const [blogs, setBlogs] = useState([])
-  // const [title, setTitle] = useState('')
-  // const [author, setAuthor] = useState('')
-  // const [url, setUrl] = useState('')
-  const title = useField('text')
-  const author = useField('text')
-  const url = useField('text')
+  const [title, resetTitle] = useField('text')
+  const [author, resetAuthor] = useField('text')
+  const [url,  resetUrl] = useField('text')
   const [info, setInfo] = useState(null)
   const [error, setError] = useState(null)
 
@@ -57,8 +54,8 @@ function App() {
       )
       blogsService.setToken(user.token)
       setUser(user)
-      username.reset()
-      password.reset()
+      resetUsername()
+      resetPassword()
     } catch (exception) {
       setError('wrong username or password')
       setTimeout(() => {
@@ -95,9 +92,9 @@ function App() {
     setTimeout(() => {
       setInfo(null)
     }, 5000)
-    title.reset()
-    author.reset()
-    url.reset()
+    resetTitle()
+    resetAuthor()
+    resetUrl()
   }
 
   const addLikes = async (oldBlog) => {
