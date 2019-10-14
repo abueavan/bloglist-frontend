@@ -83,10 +83,7 @@ function App() {
     }
 
     const newBlog = await blogsService.create(blogObject)
-    newBlog.user = {
-      usename: user.username,
-      name: user.name
-    }
+    newBlog.user = user
     setBlogs(blogs.concat(newBlog))
     setInfo(`a new blog ${newBlog.title} by ${newBlog.author} add`)
     setTimeout(() => {
