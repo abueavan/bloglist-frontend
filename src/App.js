@@ -14,9 +14,12 @@ function App() {
   const password = useField('password')
   const [user, setUser] = useState(null)
   const [blogs, setBlogs] = useState([])
-  const [title, setTitle] = useState('')
-  const [author, setAuthor] = useState('')
-  const [url, setUrl] = useState('')
+  // const [title, setTitle] = useState('')
+  // const [author, setAuthor] = useState('')
+  // const [url, setUrl] = useState('')
+  const title = useField('text')
+  const author = useField('text')
+  const url = useField('text')
   const [info, setInfo] = useState(null)
   const [error, setError] = useState(null)
 
@@ -77,9 +80,9 @@ function App() {
     event.preventDefault()
     blogFormRef.current.toggleVisibility()
     const blogObject = {
-      title,
-      author,
-      url,
+      'title': title.value,
+      'author': author.value,
+      'url': url.value,
     }
 
     const newBlog = await blogsService.create(blogObject)
@@ -92,10 +95,9 @@ function App() {
     setTimeout(() => {
       setInfo(null)
     }, 5000)
-    setTitle('')
-    setAuthor('')
-    setUrl('')
-
+    title.reset()
+    author.reset()
+    url.reset()
   }
 
   const addLikes = async (oldBlog) => {
@@ -151,9 +153,6 @@ function App() {
           title={title}
           author={author}
           url={url}
-          handleTitleChange ={({ target }) => setTitle(target.value)}
-          handleAuthorChange={({ target }) => setAuthor(target.value)}
-          handleUrlChange   ={({ target }) => setUrl(target.value)}
           handleSubmit={addBlog}
         />
       </Togglable>

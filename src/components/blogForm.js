@@ -2,9 +2,6 @@ import React from 'react'
 
 const BlogForm = ({
   handleSubmit,
-  handleTitleChange,
-  handleAuthorChange,
-  handleUrlChange,
   title,
   author,
   url
@@ -15,28 +12,28 @@ const BlogForm = ({
         <div>
                 title:
           <input
-            type="text"
-            value={title}
+            type={title.type}
+            value={title.value}
             name="Title"
-            onChange={handleTitleChange}
+            onChange={title.onChange}
           />
         </div>
         <div>
                 author:
           <input
-            type="text"
-            value={author}
+            type={author.type}
+            value={author.value}
             name="Author"
-            onChange={handleAuthorChange}
+            onChange={author.onChange}
           />
         </div>
         <div>
                 url:
           <input
-            type="text"
-            value={url}
+            type={url.type}
+            value={url.value}
             name="URL"
-            onChange={handleUrlChange}
+            onChange={url.onChange}
           />
         </div>
         <button type="submit">create</button>
