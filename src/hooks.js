@@ -8,12 +8,14 @@ export const useField = (type) => {  const [value, setValue] = useState('')
 
   const reset = () => setValue('')
 
+  const field = {
+    type,
+    value,
+    onChange,
+  }
+
   return [
-    {
-      type,
-      value,
-      onChange,
-    },
+    field,
     reset
   ]
 }
